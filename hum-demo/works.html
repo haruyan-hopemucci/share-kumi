@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハンバーガーメニューデモ - works</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/destyle.css">
+  <link rel="stylesheet" href="./css/style2.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="brand">Demo</h1>
+    <!-- <button class="hamburger-button"><span></span></button> -->
+    <div class="btn-trigger" id="btn01">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Works</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="main-visual">
+      <p>
+        現在工事中です。under constraction...
+      </p>
+      <div class="div-more">
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="center">©haruyan:pro. </div>
+  </footer>
+
+  <script>
+    $(".hamburger-button").on('click', function () {
+      $(".hamburger-button").toggleClass("show");
+      $("nav").toggleClass("show");
+    })
+  </script>
+
+  <script>
+    $(function () {
+      $('.btn-trigger').on('click', function () {
+        $(this).toggleClass('active');
+        $("nav").toggleClass("show");
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
