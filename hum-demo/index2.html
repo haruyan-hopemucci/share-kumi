@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハンバーガーメニューデモ</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/destyle.css">
+  <link rel="stylesheet" href="./css/style2.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="brand">Demo</h1>
+    <div class="btn-trigger" id="btn01">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+        <li><a href="#">Works</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="main-visual">
+      <img class="w-stretch" src="./img/macbook.jpg">
+      <p>
+        すべて人は、人種、皮膚の色、性、言語、宗教、政治上その他の意見、国民的もしくは社会的出身、財産、門地その他の地位又はこれに類するいかなる自由による差別をも受けることなく、この宣言に掲げるすべての権利と自由とを享有することができる。
+      </p>
+      <div class="div-more">
+        <a class="a-button" href="profile.html">more</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="center">©haruyan:pro. </div>
+  </footer>
+
+  <script>
+    $(".hamburger-button").on('click', function () {
+      $(".hamburger-button").toggleClass("show");
+      $("nav").toggleClass("show");
+    })
+  </script>
+
+  <script>
+    $(function () {
+      $('.btn-trigger').on('click', function () {
+        $(this).toggleClass('active');
+        $("nav").toggleClass("show");
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
