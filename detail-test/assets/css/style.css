@@ -1,0 +1,140 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+details {
+  margin: 1rem;
+}
+
+summary {
+  font-weight: bold;
+}
+
+.case2 {
+  border: 1px solid #aaa;
+  border-radius: 1rem;
+  background: #eee;
+}
+
+.case2 summary {
+  margin: 1rem;
+}
+
+.case2 p {
+  margin: 1rem 1rem 1rem 2rem;
+}
+
+.case3 {
+  position: relative;
+  margin-left: 12rem;
+  border: none;
+  border-radius: 1rem;
+  background: transparent;
+  height: 3rem;
+}
+
+.case3[open] {
+  height: auto;
+  background: #eee;
+}
+
+.case3[open]::after {
+  content: "";
+  position: absolute;
+  border-right: 1rem solid #eee;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid transparent;
+  top: 1rem;
+  left: -2rem;
+}
+
+.case3 summary {
+  position: absolute;
+  left: -12rem;
+  top: -1rem;
+  width: 10rem;
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #eee;
+}
+
+.case3 p {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.case4 {
+  border: 1px solid #aaa;
+  border-radius: 1rem;
+  background: #eee;
+}
+
+.case4 summary {
+  margin: 1rem;
+}
+
+.case4 div.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.case4 p {
+  margin: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #eee;
+}
+
+.case5 {
+  border: 1px solid #aaa;
+  border-radius: 1rem;
+  background: #eee;
+}
+
+.case5 summary {
+  margin: 1rem;
+}
+
+.case5 div.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.case5 p {
+  margin: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #eee;
+}
+/*# sourceMappingURL=style.css.map */
