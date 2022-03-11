@@ -1,0 +1,861 @@
+/*-------------------------------------------
+ reset
+-------------------------------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+button,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input[type="“submit”"],
+input[type="“button”"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  -webkit-appearance: none !important;
+  border-radius: 0;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &:focus {
+    outline-offset: -2px;
+  }
+}
+
+/*color*/
+$black: #000000;
+$dark: #333333;
+$gray: #666666;
+$darkgray: #999999;
+$sliver: #cccccc;
+$lightgray: #dddddd;
+$smoke: #f3f3f3;
+$whitesmoke: #fafafa;
+$white: #ffffff;
+$lampblack: #261a0c;
+$red: #ec1212;
+$orange: #ff8100;
+$gold: #ffd700;
+$green: #49bf7a;
+$lightgreen: #d6f5e3;
+$seagreen: #1d939e;
+$indigo: #43009e;
+$blue: #2d84f2;
+$aliceblue: #f0f8ff;
+$navy: #003366;
+$papayawhip: #f5f0d4;
+
+/*color追加*/
+/*セクションタイトル*/
+$section-title: #00294b;
+$section-title-deco: #83bdf9;
+/*カラー*/
+$main-color: #00294b;
+$accent-color: #71beff;
+$bgc: #f0f8ff;
+
+/*font-size*/
+$tiny: 1.2rem;
+$small: 1.4rem;
+$little: 1.5rem;
+$middle: 1.6rem;
+$large: 1.8rem;
+$tall: 2rem;
+$big: 2.4rem;
+$huge: 2.8rem;
+$high: 3rem;
+$great: 3.2rem;
+/*screen*/
+$pc: 1200px;
+$tab: 100%;
+
+/*point*/
+@mixin tab {
+  @media screen and (max-width: 959px) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin fp {
+  @media screen and (max-width: 340px) {
+    @content;
+  }
+}
+
+@include sp {
+  width: calc(100% - 22rem);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/*単位基点*/
+html {
+  font-size: 62.5%;
+  @include sp {
+    font-size: 52.5%;
+  }
+}
+/*レスポンシブイメージと画像下スペース防止*/
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/**
+* **********************************
+*共通スタイル
+* **********************************
+*/
+/*基本の書体・文字色*/
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  color: $dark;
+}
+/*クラス明朝体*/
+.mincho {
+  font-family: "Noto Serif JP", serif;
+}
+
+/*--------------------------------------
+* ヘッダー
+---------------------------------------*/
+.header {
+  padding-top: 2rem;
+  padding-bottom: 15rem;
+  /*
+  background: right bottom/50% no-repeat url('../img/sakura.png'),
+              top no-repeat linear-gradient(#DDCA99, #FFFFFF);
+              */
+  background-image: url("../img/sakura.png"), linear-gradient(#ddca99, #ffffff);
+  background-position: right bottom, top;
+  background-position: right -100px bottom 140px, top;
+  background-size: 50%, auto 170px;
+  background-repeat: no-repeat, no-repeat;
+  @include sp {
+    padding: 0;
+    background-image: linear-gradient(
+        rgba(#ffffff, 1),
+        rgba(#ffffff, 0.6) 52%,
+        rgba(#ffffff, 0) 70%,
+        rgba(#ffffff, 0) 100%
+      ),
+      url(../img/main_sp.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+    width: 100vw;
+    height: 155vw;
+  }
+}
+
+.header-main-container {
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+  @include sp {
+    width: 100vw;
+  }
+  .header-info-logo {
+    position: absolute;
+    right: 102%;
+    width: 96px;
+    top: 0;
+    @include sp {
+      top: 20vw;
+      left: 50%;
+      width: 22.5vw;
+      transform: translateX(-50%);
+    }
+  }
+  .header-info-main-visual img {
+    border-radius: 30px;
+    @include sp {
+      display: none;
+    }
+  }
+}
+.header-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.5rem;
+  @include sp {
+    display: block; // 暫定措置
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    margin: 0;
+    background-color: #fff;
+    .header-nav ul {
+      flex-wrap: wrap;
+    }
+    
+  }
+}
+.header-nav {
+  position: relative;
+  z-index: 1;
+}
+.header-nav::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  background: rgba(#ffffff, 0.5);
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.header-nav ul {
+  display: flex;
+  // margin: 0 auto;
+  a {
+    position: relative;
+    display: block;
+    width: 6rem;
+    height: 27rem;
+    margin: 0 3rem 0 3rem;
+    &.nav-item {
+      background-repeat: no-repeat;
+      transform-origin: top center;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &.nav-item-1 {
+      background-image: url("/img/g_nav_omoi.svg");
+      &:hover {
+        background-image: url("/img/g_nav_omoi02.svg");
+      }
+    }
+    &.nav-item-2 {
+      background-image: url("/img/g_nav_osusume.svg");
+      &:hover {
+        background-image: url("/img/g_nav_osusume02.svg");
+      }
+    }
+    &.nav-item-3 {
+      background-image: url("/img/g_nav_kisetu.svg");
+      &:hover {
+        background-image: url("/img/g_nav_kisetu02.svg");
+      }
+    }
+    &.nav-item-4 {
+      background-image: url("/img/g_nav_cafe.svg");
+      &:hover {
+        background-image: url("/img/g_nav_cafe02.svg");
+      }
+    }
+    &.nav-item-5 {
+      background-image: url("/img/g_nav_sadou.svg");
+      &:hover {
+        background-image: url("/img/g_nav_sadou02.svg");
+      }
+    }
+    &.nav-item-6 {
+      background-image: url("/img/g_nav_access.svg");
+      &:hover {
+        background-image: url("/img/g_nav_access02.svg");
+      }
+    }
+    // &:hover {
+    //   opacity: 0.5;
+    // }
+  }
+}
+
+/*--------------------------------------
+* 見出し共通
+---------------------------------------*/
+.section_til {
+  @include sp {
+    //  margin-right: -9vw;
+  }
+  img {
+    width: 27rem;
+    @include sp {
+      width: 54vw;
+      margin-top: 13vw;
+      transform: translateX(9vw);
+      z-index: 50;
+    }
+  }
+}
+
+
+/*--------------------------------------
+* menu
+---------------------------------------*/
+.menu {
+  position: fixed;
+  top: 0%;
+  right: 0;
+  width: 5.7rem;
+  z-index: 100;
+  .pc_only {
+    @include sp {
+      display: none;
+    }
+  }
+  .sp_only {
+    display: none;
+    @include sp {
+      display: block;
+    }
+  }
+}
+/*--------------------------------------
+* 和菓子への思い
+---------------------------------------*/
+.omoi {
+  margin-bottom: 15rem;
+  @include sp {
+    margin: 0;
+    padding: 0;
+    // background-image: url(../img/sakura.png), linear-gradient(rgba(#b45555,1), rgba(#FFFFFF,0.6) 52%, rgba(#FFFFFF,0) 70%, rgba(#FFFFFF,0) 100%), url(../img/omoi_sp.jpg);
+    background-image: url(../img/sakura.png),
+      linear-gradient(rgba(#ffffff, 1) 55%, rgba(#ffffff, 0.8) 70%, rgba(#ffffff, 0) 100%), url(../img/omoi_sp.jpg);
+    background-repeat: no-repeat;
+    background-size: 106%, 100%, 100%;
+    background-position: top right -10vw, bottom, bottom;
+    width: 100vw;
+    height: 155vw;
+  }
+}
+.omoi-container {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @include sp {
+    width: 100vw;
+    flex-direction: row-reverse;
+    overflow: hidden;
+  }
+
+  .omoi_img {
+    width: 50%;
+    margin-top: 5rem;
+    @include sp {
+      display: none;
+    }
+  }
+}
+
+.tategaki {
+  // -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  margin-top: 5rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.2em;
+  color: #7e7e7e;
+  @include sp {
+    margin-top: 47vw;
+    margin-left: 13vw;
+    font-size: 4.7vw;
+    line-height: 2em;
+  }
+}
+
+/*--------------------------------------
+* おすすめの和菓子
+---------------------------------------*/
+
+.osusume {
+  padding-bottom: 8rem;
+  background-image: url("../img/osusume_pattern.svg"), linear-gradient(#ffffff, #ddca99);
+  background-position: right bottom, bottom;
+  background-size: 6rem, auto 65%;
+  background-repeat: repeat, no-repeat;
+  margin-bottom: 15rem;
+  @include sp {
+    border-top: 1vw solid #ddca99;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 213vw;
+    background-image: linear-gradient(rgba(#ffffff, 0) 55%, rgba(#ffffff, 1) 78.5%, rgba(#ffffff, 1) 100%),
+      url("../img/osusume_sp.jpg"), url("../img/osusume_pattern.svg"),
+      linear-gradient((rgba(#ddcc99, 0) 70%, rgba(#ddca99, 1) 100%));
+    background-position: top, top, bottom, bottom;
+    background-size: 100% 138.4vw, 100%, 6rem, auto;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  }
+}
+
+.osusume-container {
+  width: 1000px;
+  margin: 0 auto;
+  @include sp {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.osusume-top {
+  position: relative;
+  margin-bottom: 7rem;
+  .section_til {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    img {
+      width: 27rem;
+      @include sp {
+        width: 54vw;
+      }
+    }
+  }
+  .osusume-img {
+    width: 100%;
+    transform-origin: left bottom;
+    transform: scale(0.85);
+    z-index: -1;
+    img {
+      @include sp {
+        display: none;
+      }
+    }
+  }
+}
+
+.osusume-bottom {
+  display: flex;
+  gap: 5rem;
+  margin: 0 15rem;
+  flex-wrap: wrap;
+  @include sp {
+    position: absolute;
+    bottom: 0;
+    margin: 0 5.33vw;
+    flex-wrap: wrap;
+  }
+}
+
+.osusume-list {
+  position: relative;
+  transition: all 0.3s ease;
+  width: 28.5%;
+  @include sp {
+    width: 42%;
+    &.zure {
+      transform: translateY(50%);
+    }
+  }
+  &:hover {
+    transform: scale(1.1);
+    .list-til {
+      transform: translate(50%, -20%) rotate(10deg);
+    }
+  }
+  .list-til {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease;
+    transform: translate(50%, -20%);
+    z-index: 1;
+    img {
+      width: 3.5rem;
+    }
+  }
+  .list-img {
+    width: 100%;
+    transform-origin: left bottom;
+    z-index: -1;
+    // border: 10px solid #966E04;
+    img {
+      border: 1px solid #966e04;
+    }
+  }
+}
+.osusume-more {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding-bottom: 6.1vw;
+  a {
+    // color: #fff;
+    // padding: 3.2vw;
+    // text-decoration: none;
+    // font-size: 4.8vw;
+    // background-color: #966E04;
+    color: #fff;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    font-size: 1.8rem;
+    background-color: #966e04;
+  }
+  @include sp {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6.1vw;
+    a {
+      // color: #fff;
+      // padding: 3.2vw;
+      // text-decoration: none;
+      // font-size: 4.8vw;
+      // background-color: #966E04;
+      color: #fff;
+      padding: 3vw 7vw;
+      text-decoration: none;
+      font-size: 3.8vw;
+      background-color: #966e04;
+    }
+  }
+}
+
+/*--------------------------------------
+* 季節の和菓子
+---------------------------------------*/
+
+.kisetu {
+  padding-bottom: 8rem;
+  background-image: url("../img/kisetu_pattern.svg"), linear-gradient(#ffffff, #e8d3d1);
+  background-position: right bottom, bottom;
+  background-size: 6rem, auto 65%;
+  background-repeat: repeat, no-repeat;
+  margin-bottom: 15rem;
+  @include sp {
+    border-top: 1vw solid #ddca99;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 213vw;
+    background-image: linear-gradient(rgba(#ffffff, 0) 55%, rgba(#ffffff, 1) 78.5%, rgba(#ffffff, 1) 100%),
+      url("../img/kisetu_sp.jpg"), url("../img/kisetu_pattern.svg"),
+      linear-gradient((rgba(#e8d3d1, 0) 70%, rgba(#e8d3d1, 1) 100%));
+    background-position: top, top, bottom, bottom;
+    background-size: 100% 138.4vw, 100%, 6rem, auto;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  }
+}
+
+.kisetu-container {
+  width: 1000px;
+  margin: 0 auto;
+  @include sp {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.kisetu-top {
+  position: relative;
+  margin-bottom: 7rem;
+  .section_til {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    @include sp {
+      left: auto;
+      right: 0;
+    }
+    img {
+      width: 27rem;
+      @include sp {
+        width: 54vw;
+      }
+    }
+  }
+  .kiisetu-img {
+    width: 100%;
+    transform-origin: right bottom;
+    transform: scale(0.85);
+    z-index: -1;
+    img {
+      @include sp {
+        display: none;
+      }
+    }
+  }
+}
+
+/*--------------------------------------
+* わカフェ
+---------------------------------------*/
+
+.cafe {
+  padding-bottom: 8rem;
+  background-image: url("../img/osusume_pattern.svg"), linear-gradient(#ffffff, #b9d08b);
+  background-position: right bottom, bottom;
+  background-size: 6rem, auto 65%;
+  background-repeat: repeat, no-repeat;
+  margin-bottom: 15rem;
+  @include sp {
+    border-top: 1vw solid #ddca99;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 213vw;
+    background-image: linear-gradient(rgba(#ffffff, 0) 55%, rgba(#ffffff, 1) 78.5%, rgba(#ffffff, 1) 100%),
+      url("../img/cafe_sp.jpg"), url("../img/osusume_pattern.svg"),
+      linear-gradient((rgba(#b9d08b, 0) 70%, rgba(#b9d08b, 1) 100%));
+    background-position: top, top, bottom, bottom;
+    background-size: 100% 138.4vw, 100%, 6rem, auto;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  }
+}
+
+.cafe-container {
+  width: 1000px;
+  margin: 0 auto;
+  @include sp {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.cafe-top {
+  position: relative;
+  margin-bottom: 7rem;
+  .section_til {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    img {
+      width: 27rem;
+      @include sp {
+        width: 54vw;
+      }
+    }
+  }
+  .cafe-img {
+    width: 100%;
+    transform-origin: left bottom;
+    transform: scale(0.85);
+    z-index: -1;
+    img {
+      @include sp {
+        display: none;
+      }
+    }
+  }
+}
+
+.cafe-bottom {
+  display: flex;
+  gap: 5rem;
+  margin: 0 15rem;
+  @include sp {
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    margin: 0 5.33vw;
+  }
+}
+
+.cafe-list {
+  position: relative;
+  transition: all 1s ease;
+  @include sp {
+    width: 42%;
+    &.zure {
+      transform: translateY(50%);
+    }
+  }
+  .list-til {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -20%);
+    z-index: 1;
+    img {
+      width: 3.5rem;
+    }
+  }
+  .list-img {
+    width: 100%;
+    transform-origin: left bottom;
+    z-index: -1;
+    // border: 10px solid #966E04;
+    img {
+      border: 1px solid #966e04;
+    }
+  }
+}
+
+/*--------------------------------------
+* 茶道
+---------------------------------------*/
+
+.cya {
+  padding-bottom: 8rem;
+  background-image: url("../img/kisetu_pattern.svg"), linear-gradient(#ffffff, #ddc3a8);
+  background-position: right bottom, bottom;
+  background-size: 6rem, auto 65%;
+  background-repeat: repeat, no-repeat;
+  margin-bottom: 15rem;
+  @include sp {
+    border-top: 1vw solid #ddca99;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 213vw;
+    background-image: linear-gradient(rgba(#ffffff, 0) 55%, rgba(#ffffff, 1) 78.5%, rgba(#ffffff, 1) 100%),
+      url("../img/cya_sp.jpg"), url("../img/kisetu_pattern.svg"),
+      linear-gradient((rgba(#ddc3a8, 0) 70%, rgba(#ddc3a8, 1) 100%));
+    background-position: top, top, bottom, bottom;
+    background-size: 100% 138.4vw, 100%, 6rem, auto;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  }
+}
+
+.cya-container {
+  width: 1000px;
+  margin: 0 auto;
+  @include sp {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.cya-top {
+  position: relative;
+  margin-bottom: 7rem;
+  .section_til {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    @include sp {
+      left: auto;
+      right: 0;
+    }
+    img {
+      width: 27rem;
+      @include sp {
+        width: 54vw;
+      }
+    }
+  }
+  .cya-img {
+    width: 100%;
+    transform-origin: right bottom;
+    transform: scale(0.85);
+    z-index: -1;
+    @include sp {
+      display: none;
+    }
+  }
+}
