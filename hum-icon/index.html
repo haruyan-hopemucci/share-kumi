@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/destyle.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>ハンバーガーメニューのアイコン</h1>
+  <h2>まず、上下の棒を中央に寄せるだけ</h2>
+  <button id="hamburger-menu-button_1-1" onclick="clickButton(this)">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </button>
+  <h2>次に、上下の棒を45度回転させる</h2>
+  <button id="hamburger-menu-button_1-2" onclick="clickButton(this)">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </button>
+  <h2>真ん中の棒を消去する(opacity)</h2>
+  <button id="hamburger-menu-button_1-3" onclick="clickButton(this)">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </button>
+  <h2>完成</h2>
+  <button id="hamburger-menu-button" onclick="clickButton(this)">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </button>
+  <script>
+    function clickButton(elem){
+      elem.classList.toggle('open')
+    }
+  </script>
+</body>
+</html>

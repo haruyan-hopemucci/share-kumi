@@ -1,0 +1,161 @@
+*{
+  box-sizing: border-box;
+}
+h1{
+  font-size: 200%;
+  font-weight: 700;
+}
+body{
+  padding: 1em;
+}
+button{
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  &::after{
+    position: absolute;
+    content: "close";
+    bottom: 0;
+    left: 120%;
+  }
+  &.open::after{
+    content: "open";
+  }
+}
+#hamburger-menu-button{
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  position: relative;
+  span{
+    display: inline-block;
+    position: absolute;
+    background-color: #000;
+    width: 50px;
+    height: 5px;
+    transition: all 0.3s ease;
+  }
+  .top{
+    top: 10px;
+  }
+  .middle{
+    top: 25px;
+  }
+  .bottom{
+    top: 40px;
+  }
+  &.open{
+    .top{
+      top:25px;
+      transform: rotate(45deg);
+    }
+    .middle{
+      opacity: 0;
+      width: 0;
+    }
+    .bottom{
+      top:25px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+#hamburger-menu-button_1-1{
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  position: relative;
+  span{
+    display: inline-block;
+    position: absolute;
+    background-color: #000;
+    width: 50px;
+    height: 5px;
+    transition: all 0.3s ease;
+  }
+  .top{
+    top: 10px;
+  }
+  .middle{
+    top: 25px;
+  }
+  .bottom{
+    top: 40px;
+  }
+  &.open{
+    .top{
+      top:25px;
+    }
+    .middle{
+    }
+    .bottom{
+      top:25px;
+    }
+  }
+}
+#hamburger-menu-button_1-2{
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  position: relative;
+  span{
+    display: inline-block;
+    position: absolute;
+    background-color: #000;
+    width: 50px;
+    height: 5px;
+    transition: all 0.3s ease;
+  }
+  .top{
+    top: 25px;
+  }
+  .middle{
+    top: 25px;
+  }
+  .bottom{
+    top: 25px;
+  }
+  &.open{
+    .top{
+      transform: rotate(45deg);
+    }
+    .middle{
+    }
+    .bottom{
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+#hamburger-menu-button_1-3{
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  position: relative;
+  span{
+    display: inline-block;
+    position: absolute;
+    background-color: #000;
+    width: 50px;
+    height: 5px;
+    transition: all 0.3s ease;
+  }
+  .top{
+    top: 25px;
+    transform: rotate(45deg);
+  }
+  .middle{
+    top: 25px;
+  }
+  .bottom{
+    top: 25px;
+    transform: rotate(-45deg);
+  }
+  &.open{
+    .top{
+    }
+    .middle{
+      opacity: 0;
+    }
+    .bottom{
+    }
+  }
+}
